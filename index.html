@@ -1,296 +1,1849 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Belsi Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Belsi | IT Student Portfolio</title>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+        rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+
 
 <style>
 
-body{
-    background:#050816;
-    color:white;
-    font-family:'Segoe UI',sans-serif;
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.sidebar{
-    background:#0b1120;
-    min-height:100vh;
-    padding:30px;
+html {
+    scroll-behavior: smooth;
 }
 
-.profile{
-    width:180px;
-    height:180px;
-    border-radius:50%;
-    border:4px solid #8b5cf6;
-    object-fit:cover;
+body {
+    font-family: 'Inter', sans-serif;
+    background: #f7f8fa;
+    color: #172033;
+    line-height: 1.7;
 }
 
-.nav-link{
-    color:white;
+:root {
+    --navy: #0b132b;
+    --navy-light: #111d38;
+    --gold: #c9a227;
+    --gold-light: #e2c766;
+    --cream: #f7f3e8;
+    --white: #ffffff;
+    --gray: #667085;
+    --light: #f7f8fa;
+    --border: #e6e8ec;
 }
 
-.nav-link:hover{
-    color:#8b5cf6;
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+    background: rgba(11, 19, 43, 0.97);
+    backdrop-filter: blur(10px);
+    padding: 18px 0;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.12);
 }
 
-.hero{
-    padding:80px 50px;
+.navbar-brand {
+    color: var(--white) !important;
+    font-size: 27px;
+    font-weight: 800;
+    letter-spacing: 1px;
 }
 
-.name{
-    font-size:70px;
-    font-weight:bold;
-    color:#8b5cf6;
+.navbar-brand span {
+    color: var(--gold);
 }
 
-.section{
-    background:#0b1120;
-    margin:20px;
-    padding:25px;
-    border-radius:15px;
+.nav-link {
+    color: #e8ebf2 !important;
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 20px;
+    transition: 0.3s;
 }
 
-.progress{
-    height:10px;
-    margin-bottom:15px;
-    background:#1f2937;
+.nav-link:hover {
+    color: var(--gold) !important;
 }
 
-.progress-bar{
-    background:#8b5cf6;
+.navbar-toggler {
+    border: 1px solid rgba(255,255,255,0.3);
 }
 
-.card{
-    background:#111827;
-    color:white;
-    border:none;
+.navbar-toggler-icon {
+    filter: invert(1);
 }
 
-.card img{
-    height:220px;
-    object-fit:cover;
+
+/* =====================================================
+   HERO
+===================================================== */
+
+#home {
+    min-height: 100vh;
+    background:
+        linear-gradient(
+            135deg,
+            #0b132b 0%,
+            #111d38 60%,
+            #17233f 100%
+        );
+
+    display: flex;
+    align-items: center;
+    padding-top: 100px;
+    position: relative;
+    overflow: hidden;
 }
 
-.btn-purple{
-    background:#8b5cf6;
-    color:white;
+#home::before {
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: rgba(201,162,39,0.08);
+    top: -100px;
+    right: -100px;
 }
 
-.btn-purple:hover{
-    background:#7c3aed;
-    color:white;
+#home::after {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: rgba(201,162,39,0.05);
+    bottom: -80px;
+    left: -80px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-small {
+    color: var(--gold-light);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.hero-title {
+    color: white;
+    font-size: 65px;
+    font-weight: 800;
+    margin-top: 15px;
+    line-height: 1.1;
+}
+
+.hero-title span {
+    color: var(--gold);
+}
+
+.hero-role {
+    color: #d5d9e3;
+    font-size: 23px;
+    font-weight: 500;
+    margin-top: 20px;
+}
+
+.hero-description {
+    color: #aeb6c7;
+    max-width: 620px;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.btn-gold {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 13px 30px;
+    background: var(--gold);
+    color: var(--navy);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.btn-gold:hover {
+    background: var(--gold-light);
+    color: var(--navy);
+    transform: translateY(-3px);
+}
+
+.btn-outline {
+    display: inline-block;
+    margin-top: 25px;
+    margin-left: 10px;
+    padding: 12px 30px;
+    border: 1px solid rgba(255,255,255,0.4);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-outline:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+
+/* =====================================================
+   HERO PROFILE
+===================================================== */
+
+.profile-wrapper {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+}
+
+.profile-box {
+    width: 340px;
+    height: 400px;
+    border: 1px solid rgba(201,162,39,0.5);
+    background: rgba(255,255,255,0.04);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.profile-box::before {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 360px;
+    border: 1px solid rgba(255,255,255,0.15);
+}
+
+.profile-icon {
+    width: 170px;
+    height: 170px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-icon i {
+    font-size: 90px;
+    color: var(--navy);
+}
+
+
+/* =====================================================
+   GENERAL SECTION
+===================================================== */
+
+section {
+    padding: 100px 0;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-heading small {
+    color: var(--gold);
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.section-heading h2 {
+    font-size: 40px;
+    font-weight: 800;
+    margin-top: 10px;
+    color: var(--navy);
+}
+
+.section-heading h2 span {
+    color: var(--gold);
+}
+
+.section-heading p {
+    color: var(--gray);
+    max-width: 600px;
+    margin: 12px auto 0;
+}
+
+
+/* =====================================================
+   ABOUT
+===================================================== */
+
+#about {
+    background: white;
+}
+
+.about-content {
+    background: var(--light);
+    padding: 45px;
+    border-left: 4px solid var(--gold);
+}
+
+.about-content h3 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 20px;
+}
+
+.about-content p {
+    color: var(--gray);
+}
+
+.about-details {
+    padding: 20px;
+}
+
+.detail-item {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.detail-item strong {
+    color: var(--navy);
+}
+
+.detail-item span {
+    color: var(--gray);
+}
+
+
+/* =====================================================
+   SKILLS
+===================================================== */
+
+.skill-card {
+    background: white;
+    border: 1px solid var(--border);
+    padding: 30px;
+    margin-bottom: 25px;
+    transition: 0.3s;
+    height: 100%;
+}
+
+.skill-card:hover {
+    transform: translateY(-7px);
+    border-color: var(--gold);
+    box-shadow: 0 15px 35px rgba(11,19,43,0.08);
+}
+
+.skill-icon {
+    width: 55px;
+    height: 55px;
+    background: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.skill-icon i {
+    color: var(--gold);
+    font-size: 27px;
+}
+
+.skill-card h5 {
+    font-weight: 700;
+    color: var(--navy);
+}
+
+.skill-card p {
+    color: var(--gray);
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.progress {
+    height: 6px;
+    background: #e9ebef;
+    border-radius: 0;
+}
+
+.progress-bar {
+    background: var(--gold);
+}
+
+
+/* =====================================================
+   INTERNSHIP
+===================================================== */
+
+#internship {
+    background: var(--navy);
+}
+
+#internship .section-heading h2 {
+    color: white;
+}
+
+#internship .section-heading p {
+    color: #aeb6c7;
+}
+
+.internship-card {
+    background: var(--navy-light);
+    border: 1px solid rgba(201,162,39,0.35);
+    padding: 45px;
+    position: relative;
+}
+
+.internship-card::before {
+    content: "INTERNSHIP";
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.internship-card h3 {
+    color: white;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.internship-card h5 {
+    color: var(--gold-light);
+    margin-top: 10px;
+}
+
+.internship-card p {
+    color: #b5bdcd;
+    margin-top: 20px;
+}
+
+.internship-project {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 18px;
+    background: rgba(201,162,39,0.1);
+    border: 1px solid rgba(201,162,39,0.3);
+    color: var(--gold-light);
+}
+
+
+/* =====================================================
+   PROJECTS
+===================================================== */
+
+.project-card {
+    background: white;
+    border: 1px solid var(--border);
+    height: 100%;
+    transition: 0.3s;
+    overflow: hidden;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(11,19,43,0.1);
+}
+
+.project-top {
+    height: 210px;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.project-top i {
+    font-size: 80px;
+    color: var(--gold);
+}
+
+.project-number {
+    position: absolute;
+    top: 18px;
+    left: 20px;
+    color: rgba(255,255,255,0.5);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.project-content {
+    padding: 30px;
+}
+
+.project-content h4 {
+    color: var(--navy);
+    font-weight: 700;
+}
+
+.project-content p {
+    color: var(--gray);
+    font-size: 14px;
+    margin: 15px 0;
+}
+
+.tech {
+    display: inline-block;
+    background: var(--cream);
+    color: #75601b;
+    padding: 5px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    margin: 3px;
+}
+
+
+/* =====================================================
+   EDUCATION
+===================================================== */
+
+#education {
+    background: white;
+}
+
+.education-line {
+    position: relative;
+    max-width: 850px;
+    margin: auto;
+}
+
+.education-item {
+    background: var(--light);
+    padding: 30px;
+    margin-bottom: 25px;
+    border-left: 4px solid var(--gold);
+}
+
+.education-item h4 {
+    color: var(--navy);
+    font-weight: 700;
+}
+
+.education-item .year {
+    color: var(--gold);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.education-item p {
+    color: var(--gray);
+    margin-bottom: 0;
+}
+
+
+/* =====================================================
+   CERTIFICATES
+===================================================== */
+
+.certificate-card {
+    background: white;
+    border: 1px solid var(--border);
+    padding: 35px;
+    text-align: center;
+    transition: 0.3s;
+    height: 100%;
+}
+
+.certificate-card:hover {
+    transform: translateY(-7px);
+    border-color: var(--gold);
+    box-shadow: 0 15px 30px rgba(11,19,43,0.08);
+}
+
+.certificate-icon {
+    width: 70px;
+    height: 70px;
+    background: var(--cream);
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.certificate-icon i {
+    font-size: 35px;
+    color: var(--gold);
+}
+
+.certificate-card h5 {
+    color: var(--navy);
+    font-weight: 700;
+}
+
+.certificate-card p {
+    color: var(--gray);
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+#contact {
+    background: var(--light);
+}
+
+.contact-info-box {
+    background: var(--navy);
+    padding: 45px;
+    height: 100%;
+}
+
+.contact-info-box h3 {
+    color: white;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.contact-info-box p {
+    color: #aeb6c7;
+}
+
+.contact-detail {
+    margin-top: 25px;
+    color: #dfe3eb;
+}
+
+.contact-detail i {
+    color: var(--gold);
+    margin-right: 12px;
+}
+
+.social-icons {
+    margin-top: 30px;
+}
+
+.social-icons a {
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(255,255,255,0.2);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-right: 8px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    background: var(--gold);
+    color: var(--navy);
+    border-color: var(--gold);
+}
+
+.contact-form {
+    background: white;
+    padding: 45px;
+}
+
+.form-control {
+    border: 1px solid var(--border);
+    border-radius: 0;
+    padding: 13px;
+}
+
+.form-control:focus {
+    border-color: var(--gold);
+    box-shadow: none;
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--navy);
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+    background: #070d1d;
+    color: #9da6b8;
+    text-align: center;
+    padding: 30px;
+}
+
+footer strong {
+    color: var(--gold);
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 991px) {
+
+    .nav-link {
+        margin-left: 0;
+        padding: 10px 0;
+    }
+
+    .hero-title {
+        font-size: 50px;
+    }
+
+    .profile-box {
+        margin-top: 50px;
+    }
+
+}
+
+
+@media (max-width: 768px) {
+
+    section {
+        padding: 70px 0;
+    }
+
+    .hero-title {
+        font-size: 42px;
+    }
+
+    .hero-role {
+        font-size: 19px;
+    }
+
+    .profile-box {
+        width: 280px;
+        height: 330px;
+    }
+
+    .profile-box::before {
+        width: 245px;
+        height: 295px;
+    }
+
+    .profile-icon {
+        width: 140px;
+        height: 140px;
+    }
+
+    .profile-icon i {
+        font-size: 70px;
+    }
+
+    .section-heading h2 {
+        font-size: 32px;
+    }
+
 }
 
 </style>
+
 </head>
+
 
 <body>
 
-<div class="container-fluid">
-<div class="row">
 
-<!-- SIDEBAR -->
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
 
-<div class="col-md-3 sidebar text-center">
+<nav class="navbar navbar-expand-lg fixed-top">
 
-<img src="jellyfish.jpg" class="profile mb-3" alt="Profile">
+    <div class="container">
 
-<h2>BELSI</h2>
-<p>IT Student</p>
-
-<hr>
-
-<ul class="nav flex-column">
-
-<li class="nav-item">
-<a href="#about" class="nav-link">About</a>
-</li>
-
-<li class="nav-item">
-<a href="#skills" class="nav-link">Skills</a>
-</li>
-
-<li class="nav-item">
-<a href="#experience" class="nav-link">Experience</a>
-</li>
-
-<li class="nav-item">
-<a href="#projects" class="nav-link">Projects</a>
-</li>
-
-<li class="nav-item">
-<a href="#contact" class="nav-link">Contact</a>
-</li>
-
-</ul>
-
-</div>
-
-<!-- MAIN CONTENT -->
-
-<div class="col-md-9">
-
-<section class="hero">
-
-<h4>Hello 👋 I'm</h4>
-
-<h1 class="name">BELSI</h1>
-
-<h3>Information Technology Student</h3>
-
-<p>
-Passionate about programming and web development.
-Currently learning modern technologies and building
-real-world projects to improve my skills.
-</p>
-
-<button class="btn btn-purple">
-Download Resume
-</button>
-
-</section>
-
-<!-- ABOUT -->
-
-<section id="about" class="section">
-
-<h2>About Me</h2>
-
-<p>
-I'm an Information Technology student passionate
-about programming and web development.
-Currently learning modern technologies and
-building projects to improve my skills.
-</p>
-
-</section>
-
-<!-- SKILLS -->
-
-<section id="skills" class="section">
-
-<h2>My Skills</h2>
-
-<p>HTML - 90%</p>
-<div class="progress">
-<div class="progress-bar" style="width:90%"></div>
-</div>
-
-<p>CSS - 80%</p>
-<div class="progress">
-<div class="progress-bar" style="width:80%"></div>
-</div>
-
-<p>Bootstrap - 70%</p>
-<div class="progress">
-<div class="progress-bar" style="width:70%"></div>
-</div>
-
-<p>JavaScript - 50%</p>
-<div class="progress">
-<div class="progress-bar" style="width:50%"></div>
-</div>
-
-<p>React JS - 40%</p>
-<div class="progress">
-<div class="progress-bar" style="width:40%"></div>
-</div>
-
-<p>Python - 30%</p>
-<div class="progress">
-<div class="progress-bar" style="width:30%"></div>
-</div>
-
-</section>
-
-<!-- EXPERIENCE -->
-
-<section id="experience" class="section">
-
-<h2>Internship</h2>
-
-<div class="card p-4">
+        <a class="navbar-brand" href="#home">
+            B<span>.</span>
+        </a>
 
 
-<h5>MALAR SOFTWARE SOLUTION</h5>
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav">
 
-<p>
-Currently doing internship at MALAR Software
-Solutions and gaining hands-on experience in
-Web Development, Front-End Development and
-Software Technologies.
-</p>
+            <span class="navbar-toggler-icon"></span>
 
-</div>
+        </button>
 
-</section>
 
-<!-- PROJECTS -->
+        <div class="collapse navbar-collapse" id="navbarNav">
 
-<section id="projects" class="section">
+            <ul class="navbar-nav ms-auto">
 
-<h2>Projects</h2>
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">
+                        Home
+                    </a>
+                </li>
 
-<div class="row">
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">
+                        About
+                    </a>
+                </li>
 
-<div class="col-md-6 mb-4">
+                <li class="nav-item">
+                    <a class="nav-link" href="#skills">
+                        Skills
+                    </a>
+                </li>
 
-<div class="card">
+                <li class="nav-item">
+                    <a class="nav-link" href="#internship">
+                        Internship
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#projects">
+                        Projects
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#education">
+                        Education
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#certificates">
+                        Certificates
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
 
 
 
-<div class="card-body">
+<!-- =====================================================
+     HOME
+===================================================== -->
 
-<h5>Inventery Management System</h5>
+<section id="home">
 
-<p>
-A web application developed using
-HTML, CSS and Bootstrap.
-</p>
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-7 hero-content">
+
+                <div class="hero-small">
+                    Welcome to my portfolio
+                </div>
 
 
+                <h1 class="hero-title">
+                    Hi, I'm <span>Belsi</span>
+                </h1>
 
-<a href="#" class="btn btn-primary">
-View Project
-</a>
 
-</div>
-</div>
-</div>
+                <div class="hero-role">
+                    Information Technology Student
+                </div>
 
-</div>
+
+                <p class="hero-description">
+
+                    I am passionate about web development,
+                    programming and creating modern digital
+                    experiences. I enjoy learning new technologies
+                    and turning ideas into practical projects.
+
+                </p>
+
+
+                <a href="#projects" class="btn-gold">
+                    View Projects
+                </a>
+
+
+                <a href="#contact" class="btn-outline">
+                    Contact Me
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
-<!-- CONTACT -->
-
-<section id="contact" class="section">
-
-<h2>Contact Me</h2>
-
-<p>📧 belsi051mail@gmail.com</p>
-
-<p>📱 +91 9363597573</p>
-
-<a href="https://github.com/belsi051-glitch"
-   target="_blank"
-   class="btn btn-primary">
-   View Project
-</a>
 
 
+<!-- =====================================================
+     ABOUT
+===================================================== -->
 
+<section id="about">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <small>About Me</small>
+
+            <h2>
+                Get to <span>Know Me</span>
+            </h2>
+
+            <p>
+                A little information about my background,
+                interests and career goals.
+            </p>
+
+        </div>
+
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-7">
+
+                <div class="about-content">
+
+                    <h3>
+                        Passionate About Technology
+                    </h3>
+
+                    <p>
+
+                        I am an Information Technology student
+                        with an interest in web development,
+                        programming and software technologies.
+
+                    </p>
+
+                    <p>
+
+                        I enjoy designing responsive websites,
+                        learning new programming concepts and
+                        developing projects that provide useful
+                        solutions.
+
+                    </p>
+
+                    <p>
+
+                        My goal is to continuously improve my
+                        technical skills and build a successful
+                        career in the technology field.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-5">
+
+                <div class="about-details">
+
+                    <div class="detail-item">
+
+                        <strong>Name</strong><br>
+
+                        <span>Belsi</span>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <strong>Course</strong><br>
+
+                        <span>
+                            Bachelor of Information Technology
+                        </span>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <strong>Interest</strong><br>
+
+                        <span>
+                            Web Development
+                        </span>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <strong>Career Goal</strong><br>
+
+                        <span>
+                            Software / Web Developer
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
-</div>
-</div>
-</div>
+
+
+<!-- =====================================================
+     SKILLS
+===================================================== -->
+
+<section id="skills">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <small>My Skills</small>
+
+            <h2>
+                Technical <span>Skills</span>
+            </h2>
+
+            <p>
+                Technologies and programming skills I am
+                currently developing.
+            </p>
+
+        </div>
+
+
+        <div class="row">
+
+
+            <!-- HTML -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+
+                        <i class="bi bi-filetype-html"></i>
+
+                    </div>
+
+                    <h5>HTML</h5>
+
+                    <p>90% proficiency</p>
+
+                    <div class="progress">
+
+                        <div
+                            class="progress-bar"
+                            style="width:90%">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CSS -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+
+                        <i class="bi bi-filetype-css"></i>
+
+                    </div>
+
+                    <h5>CSS</h5>
+
+                    <p>80% proficiency</p>
+
+                    <div class="progress">
+
+                        <div
+                            class="progress-bar"
+                            style="width:80%">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- BOOTSTRAP -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+
+                        <i class="bi bi-bootstrap"></i>
+
+                    </div>
+
+                    <h5>Bootstrap</h5>
+
+                    <p>70% proficiency</p>
+
+                    <div class="progress">
+
+                        <div
+                            class="progress-bar"
+                            style="width:70%">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- JAVASCRIPT -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+
+                        <i class="bi bi-filetype-js"></i>
+
+                    </div>
+
+                    <h5>JavaScript</h5>
+
+                    <p>50% proficiency</p>
+
+                    <div class="progress">
+
+                        <div
+                            class="progress-bar"
+                            style="width:50%">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- REACT -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+
+                        <i class="bi bi-code-slash"></i>
+
+                    </div>
+
+                    <h5>React JS</h5>
+
+                    <p>40% proficiency</p>
+
+                    <div class="progress">
+
+                        <div
+                            class="progress-bar"
+                            style="width:40%">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PYTHON -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+
+                        <i class="bi bi-filetype-py"></i>
+
+                    </div>
+
+                    <h5>Python</h5>
+
+                    <p>60% proficiency</p>
+
+                    <div class="progress">
+
+                        <div
+                            class="progress-bar"
+                            style="width:60%">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     INTERNSHIP
+===================================================== -->
+
+<section id="internship">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <small>Experience</small>
+
+            <h2>
+                My <span>Internship</span>
+            </h2>
+
+            <p>
+                Practical experience gained during my internship.
+            </p>
+
+        </div>
+
+
+        <div class="internship-card">
+
+            <h3>
+                Malar Software Solutions
+            </h3>
+
+            <h5>
+                Web Development Intern
+            </h5>
+
+
+            <p>
+
+                During my internship, I gained practical experience
+                in website design and development. I worked with
+                frontend technologies and learned how to create
+                responsive and user-friendly web interfaces.
+
+            </p>
+
+
+            <div class="internship-project">
+
+                <strong>
+                    Major Project:
+                </strong>
+
+                Bliss Bakes – Bakery Website
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PROJECTS
+===================================================== -->
+
+<section id="projects">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <small>My Work</small>
+
+            <h2>
+                Featured <span>Projects</span>
+            </h2>
+
+            <p>
+                Selected academic and internship projects.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <!-- PROJECT 1 -->
+
+            <div class="col-lg-6">
+
+                <div class="project-card">
+
+                    <div class="project-top">
+
+                        <div class="project-number">
+                            PROJECT 01
+                        </div>
+
+                        <i class="bi bi-cake2"></i>
+
+                    </div>
+
+
+                    <div class="project-content">
+
+                        <h4>
+                            Bliss Bakes
+                        </h4>
+
+
+                        <p>
+
+                            A responsive bakery website developed
+                            to showcase bakery products and provide
+                            customers with an attractive and
+                            user-friendly online experience.
+
+                        </p>
+
+
+                        <span class="tech">
+                            HTML
+                        </span>
+
+                        <span class="tech">
+                            CSS
+                        </span>
+
+                        <span class="tech">
+                            Bootstrap
+                        </span>
+
+                        <span class="tech">
+                            JavaScript
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PROJECT 2 -->
+
+            <div class="col-lg-6">
+
+                <div class="project-card">
+
+                    <div class="project-top">
+
+                        <div class="project-number">
+                            PROJECT 02
+                        </div>
+
+                        <i class="bi bi-heart-fill"></i>
+
+                    </div>
+
+
+                    <div class="project-content">
+
+                        <h4>
+                            Online Donation Platform
+                        </h4>
+
+
+                        <p>
+
+                            A donation management platform designed
+                            to organize online donation activities
+                            and provide an efficient system for
+                            managing donation information.
+
+                        </p>
+
+
+                        <span class="tech">
+                            APEX
+                        </span>
+
+                        <span class="tech">
+                            Database
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     EDUCATION
+===================================================== -->
+
+<section id="education">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <small>Education</small>
+
+            <h2>
+                Academic <span>Journey</span>
+            </h2>
+
+        </div>
+
+
+        <div class="education-line">
+
+
+            <div class="education-item">
+
+                <div class="year">
+                    2026 – 2027
+                </div>
+
+                <h4>
+                    Bachelor of Information Technology
+                </h4>
+
+                <p>
+                    Currently pursuing Bachelor of
+                    Information Technology.
+                </p>
+
+            </div>
+
+
+            <div class="education-item">
+
+                <div class="year">
+                    Technical Interests
+                </div>
+
+                <h4>
+                    Areas of Interest
+                </h4>
+
+                <p>
+                    Web Development • Programming •
+                    Database Management • Software Development
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CERTIFICATES
+===================================================== -->
+
+<section id="certificates">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <small>Achievements</small>
+
+            <h2>
+                My <span>Certificates</span>
+            </h2>
+
+            <p>
+                Workshops and technical learning experiences.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <!-- CERTIFICATE 1 -->
+
+            <div class="col-md-6">
+
+                <div class="certificate-card">
+
+                    <div class="certificate-icon">
+
+                        <i class="bi bi-award-fill"></i>
+
+                    </div>
+
+
+                    <h5>
+                        Web Development
+                    </h5>
+
+
+                    <p>
+
+                        Web development training and
+                        technical learning certification.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CERTIFICATE 2 -->
+
+            <div class="col-md-6">
+
+                <div class="certificate-card">
+
+                    <div class="certificate-icon">
+
+                        <i class="bi bi-phone-fill"></i>
+
+                    </div>
+
+
+                    <h5>
+                        Mobile App Development
+                    </h5>
+
+
+                    <p>
+
+                        College workshop focused on mobile
+                        application development and practical
+                        technical experience.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section id="contact">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <small>Get In Touch</small>
+
+            <h2>
+                Contact <span>Me</span>
+            </h2>
+
+            <p>
+                Feel free to connect with me.
+            </p>
+
+        </div>
+
+
+        <div class="row g-0">
+
+
+            <!-- CONTACT INFORMATION -->
+
+            <div class="col-lg-5">
+
+                <div class="contact-info-box">
+
+                    <h3>
+                        Let's Connect
+                    </h3>
+
+
+                    <p>
+
+                        I am always interested in learning,
+                        collaborating and exploring new
+                        opportunities in technology.
+
+                    </p>
+
+
+                    <div class="contact-detail">
+
+                        <i class="bi bi-envelope-fill"></i>
+
+                        yourmail@gmail.com
+
+                    </div>
+
+
+                    <div class="contact-detail">
+
+                        <i class="bi bi-telephone-fill"></i>
+
+                        +91 XXXXX XXXXX
+
+                    </div>
+
+
+                    <div class="contact-detail">
+
+                        <i class="bi bi-geo-alt-fill"></i>
+
+                        Tamil Nadu, India
+
+                    </div>
+
+
+                    <div class="social-icons">
+
+                        <a href="#" target="_blank">
+
+                            <i class="bi bi-linkedin"></i>
+
+                        </a>
+
+
+                        <a href="#" target="_blank">
+
+                            <i class="bi bi-github"></i>
+
+                        </a>
+
+
+                        <a href="#" target="_blank">
+
+                            <i class="bi bi-instagram"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CONTACT FORM -->
+
+            <div class="col-lg-7">
+
+                <div class="contact-form">
+
+                    <form onsubmit="sendMessage(event)">
+
+
+                        <div class="mb-4">
+
+                            <label class="form-label">
+                                Your Name
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Enter your name"
+                                required>
+
+                        </div>
+
+
+                        <div class="mb-4">
+
+                            <label class="form-label">
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                class="form-control"
+                                placeholder="Enter your email"
+                                required>
+
+                        </div>
+
+
+                        <div class="mb-4">
+
+                            <label class="form-label">
+                                Message
+                            </label>
+
+                            <textarea
+                                class="form-control"
+                                rows="5"
+                                placeholder="Write your message..."
+                                required></textarea>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="btn-gold border-0">
+
+                            Send Message
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <p class="mb-1">
+
+        © 2026
+        <strong>Belsi</strong>.
+        All Rights Reserved.
+
+    </p>
+
+    <small>
+
+        Designed & Developed with ❤️ by Belsi
+
+    </small>
+
+</footer>
+
+
+
+<!-- Bootstrap JavaScript -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+<script>
+
+function sendMessage(event) {
+
+    event.preventDefault();
+
+    alert(
+        "Thank you for contacting me! Your message has been received."
+    );
+
+}
+
+</script>
+
 
 </body>
+
 </html>
+```
